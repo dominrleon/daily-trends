@@ -3,10 +3,19 @@ import mongoose, { Schema, Document } from "mongoose";
 export interface IFeed extends Document {
   title: string;
   url: string;
-  source: string; 
+  source: string;
   publishedAt: Date;
   createdAt: Date;
 }
+
+
+export type IFeedInput = {
+  title: string;
+  url: string;
+  source: string;
+  publishedAt: Date;
+  createdAt: Date;
+};
 
 const FeedSchema: Schema = new Schema({
   title: { type: String, required: true },

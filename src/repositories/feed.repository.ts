@@ -1,4 +1,4 @@
-import Feed, { IFeed } from "../models/feed.model";
+import Feed, { IFeed, IFeedInput } from "../models/feed.model";
 
 class FeedRepository {
   async getAllFeeds(): Promise<IFeed[]> {
@@ -9,11 +9,11 @@ class FeedRepository {
     return await Feed.findById(id);
   }
 
-  async createFeed(feedData: IFeed): Promise<IFeed> {
+  async createFeed(feedData: IFeedInput): Promise<IFeed> {
     return await Feed.create(feedData);
   }
 
-  async updateFeed(id: string, feedData: Partial<IFeed>): Promise<IFeed | null> {
+  async updateFeed(id: string, feedData: Partial<IFeedInput>): Promise<IFeed | null> {
     return await Feed.findByIdAndUpdate(id, feedData, { new: true });
   }
 
